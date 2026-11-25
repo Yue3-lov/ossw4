@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>방명록 (Guestbook)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-icon">📝</div>
+      <h1>한 줄 방명록</h1>
+      <p class="subtitle">소중한 발자취와 따뜻한 한마디를 남겨주세요.</p>
+    </header>
+
+    <main>
+      <!-- 방명록 작성 폼 -->
+      <section class="card form-card">
+        <form id="guestbook-form" autocomplete="off">
+          <div class="form-group">
+            <label for="name-input">작성자 <span class="required">*</span></label>
+            <input 
+              type="text" 
+              id="name-input" 
+              placeholder="이름 또는 닉네임을 입력하세요" 
+              maxlength="20" 
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="message-input">메시지 <span class="required">*</span></label>
+            <textarea 
+              id="message-input" 
+              placeholder="남기실 메시지를 입력하세요 (최대 200자)" 
+              rows="3" 
+              maxlength="200" 
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-footer">
+            <span id="char-counter" class="char-counter">0 / 200자</span>
+            <button type="submit" id="submit-btn" class="btn btn-primary">
+              <span class="btn-icon">✍️</span> 등록하기
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- 방명록 목록 -->
+      <section class="entries-section">
+        <div class="entries-header">
+          <h2>방명록 목록</h2>
+          <span id="entry-count" class="badge">총 0개</span>
+        </div>
+
+        <ul id="entries-list" class="entries-list" aria-live="polite">
+          <!-- JavaScript로 동적 렌더링 -->
+        </ul>
+
+        <!-- 비어있을 때 안내 UI -->
+        <div id="empty-state" class="empty-state">
+          <div class="empty-icon">💬</div>
+          <p class="empty-title">아직 남겨진 방명록이 없습니다.</p>
+          <p class="empty-desc">첫 번째 주인공이 되어 메시지를 남겨보세요!</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>브라우저 로컬 저장소(localStorage)에 안전하게 보관됩니다.</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
